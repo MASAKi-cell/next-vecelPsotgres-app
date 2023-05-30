@@ -2,7 +2,7 @@ import { NextApiHandler } from "next";
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GitHubProvider from "next-auth/providers/github";
-import prisma from "../../../../lib/prisma";
+import prisma from "../../../lib/prisma";
 
 const authHandler: NextApiHandler = (req, res) =>
   NextAuth(req, res, authOptions);
@@ -11,14 +11,14 @@ const authHandler: NextApiHandler = (req, res) =>
 const authOptions = {
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!,
+      clientId: process.env.GITHUB_ID ?? "",
+      clientSecret: process.env.GITHUB_SECRET ?? "",
     }),
   ],
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
   pages: {
-    signIn: "/auth/login",
+    signIn: "auth/login",
   },
 };
 

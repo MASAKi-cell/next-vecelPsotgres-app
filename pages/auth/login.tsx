@@ -1,35 +1,40 @@
 import { getProviders, signIn } from "next-auth/react";
-import { InferGetServerSidePropsType } from "next";
+import styles from "style/styles.module.css";
 import Image from "next/image";
+
+/** types */
+import { InferGetServerSidePropsType } from "next";
 
 const login = ({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <div className="">
-      <div className="text-center ">
-        <div className="mx-auto">
-          <div className="">
-            {providers &&
-              Object.values(providers).map((provider) => {
-                return (
-                  <div key={provider.name}>
-                    <button
-                      className=""
-                      onClick={() =>
-                        signIn(provider.id, {
-                          callbackUrl: "/",
-                        })
-                      }
-                    >
-                      <span className=""></span>
-                      <span className="">Sign in with {provider.name}</span>
-                    </button>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
+    <div className={styles.BackgroundPaper}>
+      <div>
+        <Image
+          src="/github-mark.svg"
+          width={150}
+          height={150}
+          objectFit="contain"
+          alt={"Github Logo"}
+        />
+        {providers &&
+          Object.values(providers).map((provider) => {
+            return (
+              <div key={provider.name}>
+                <button
+                  className={styles.githubButton}
+                  onClick={() =>
+                    signIn(provider.id, {
+                      callbackUrl: "/top/main",
+                    })
+                  }
+                >
+                  <span className="">Sign in with {provider.name}</span>
+                </button>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

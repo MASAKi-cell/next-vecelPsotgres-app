@@ -12,22 +12,22 @@ export default function TopPage() {
             <nav className={styles.headerNav}>
               <ul>
                 <li className={styles.current}>
-                  <a className="smoothscroll" href="">
+                  <a className={styles.link} href="">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="smoothscroll" href="">
+                  <a className={styles.link} href="">
                     Profile
                   </a>
                 </li>
                 <li>
-                  <a className="smoothscroll" href="">
+                  <a className={styles.link} href="">
                     About me
                   </a>
                 </li>
                 <li>
-                  <a className="smoothscroll" href="">
+                  <a className={styles.link} href="">
                     Logout
                   </a>
                 </li>

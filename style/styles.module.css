@@ -1,10 +1,3 @@
-.githubButton {
-  cursor: pointer;
-  background: #000000;
-  color: #ffffff;
-  border-radius: 8px;
-}
-
 .BackgroundPaper {
   width: 100vw;
   height: 100vh;
@@ -52,6 +45,33 @@
       rgba(0, 0, 0, 0.04) 130px,
       rgba(0, 0, 0, 0.04) 130px
     );
+}
+
+.githubButton {
+  cursor: pointer;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.contentCenter {
+  height: 500px;
+  position: relative;
+}
+
+.mainContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.textGradient {
+  color: #ff8c00;
+  background: -webkit-linear-gradient(0deg, #40e0d0, #ff8c00, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main {
@@ -168,5 +188,10 @@
 
 .current {
   background-color: var(--color-1);
+  text-decoration: none;
   color: white;
+}
+
+.link {
+  text-decoration: none;
 }

@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import NextAuth from "next-auth";
+import NextAuth, { SessionStrategy } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GitHubProvider from "next-auth/providers/github";
 import prisma from "lib/prisma";
@@ -19,6 +19,11 @@ const authOptions = {
   ],
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
+  session: {
+    strategy: "database" as SessionStrategy,
+    maxAge: 60 * 60 * 24 * 30, // 30 days
+    updateAge: 60 * 60 * 24, // 24 hours
+  },
   pages: {
     signIn: "auth/login",
   },

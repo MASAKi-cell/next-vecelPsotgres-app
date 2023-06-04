@@ -1,4 +1,5 @@
 import styles from "style/styles.module.css";
+import { signOut } from "next-auth/react";
 
 export default function TopPage() {
   return (
@@ -12,23 +13,24 @@ export default function TopPage() {
             <nav className={styles.headerNav}>
               <ul>
                 <li className={styles.current}>
-                  <a className={styles.link} href="">
-                    Home
-                  </a>
+                  <a className={styles.link}>Home</a>
                 </li>
                 <li>
-                  <a className={styles.link} href="">
-                    Profile
-                  </a>
+                  <a className={styles.link}>Profile</a>
                 </li>
                 <li>
-                  <a className={styles.link} href="">
-                    About me
-                  </a>
+                  <a className={styles.link}>About me</a>
                 </li>
                 <li>
-                  <a className={styles.link} href="">
-                    Logout
+                  <a
+                    className={styles.link}
+                    onClick={() =>
+                      signOut({
+                        callbackUrl: "/auth/login",
+                      })
+                    }
+                  >
+                    Sign out
                   </a>
                 </li>
               </ul>
